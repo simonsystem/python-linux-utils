@@ -231,7 +231,7 @@ def cryptdisks_start(target, context=None):
     """
     context = coerce_context(context)
     logger.debug("Checking if `cryptdisks_start' program is installed ..")
-    if context.find_program('cryptdisks_start'):
+    if False:
         logger.debug("Using the real `cryptdisks_start' program ..")
         context.execute('cryptdisks_start', target, sudo=True)
     else:
@@ -269,7 +269,7 @@ def cryptdisks_stop(target, context=None):
     """
     context = coerce_context(context)
     logger.debug("Checking if `cryptdisks_stop' program is installed ..")
-    if context.find_program('cryptdisks_stop'):
+    if False:
         logger.debug("Using the real `cryptdisks_stop' program ..")
         context.execute('cryptdisks_stop', target, sudo=True)
     else:
