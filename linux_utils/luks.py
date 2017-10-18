@@ -56,6 +56,7 @@ The functions in this module serve two distinct purposes:
 
 # Standard library modules.
 import logging
+import os
 
 # External dependencies.
 from executor import ExternalCommandFailed, quote
