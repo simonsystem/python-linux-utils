@@ -236,7 +236,8 @@ def cryptdisks_start(target, context=None):
         context.execute('cryptdisks_start', target, sudo=True)
     else:
         logger.debug("Emulating `cryptdisks_start' functionality (program not installed) ..")
-        for entry in parse_crypttab(context=context):
+        filename = os.environ.get('CRYPTDISKS_CRYPTTAB', '/etc/crypttab')
+        for entry in parse_crypttab(filename=filename,context=context):
             if entry.target == target and 'luks' in entry.options:
                 logger.debug("Matched /etc/crypttab entry: %s", entry)
                 if entry.is_unlocked:
@@ -273,7 +274,8 @@ def cryptdisks_stop(target, context=None):
         context.execute('cryptdisks_stop', target, sudo=True)
     else:
         logger.debug("Emulating `cryptdisks_stop' functionality (program not installed) ..")
-        for entry in parse_crypttab(context=context):
+        filename = os.environ.get('CRYPTDISKS_CRYPTTAB', '/etc/crypttab')
+        for entry in parse_crypttab(filename=filename,context=context):
             if entry.target == target and 'luks' in entry.options:
                 logger.debug("Matched /etc/crypttab entry: %s", entry)
                 if entry.is_unlocked:
